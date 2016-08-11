@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+ html, body, #cover {
+   height: 100%;
+   width: 100%;
+ }
+
+ body {
+  background: #000 url('https://i.ytimg.com/vi/gOonDY8vCJU/hqdefault.jpg') no-repeat top right;
+  background-size: cover;
+}
+.navbar-inverse .navbar-brand{
+  color: #fff;
+}
+.page-text{
+  font-family: cursive;
+  text-align: center;
+  color: white;
+}
+.in-p-txt{
+  font-family: cursive;
+  background-color: black;
+  color: white;
+  width: 8%;
+}
+.game-pics{
+  margin: 30px;
+  width: 300px;
+  height: 300px;
+}
+.game-info{
+  display: inline-block;
+}
+.form-group{
+  width: 40%;
+}
+.page {
+  overflow: auto;
+  display: none;
+}
