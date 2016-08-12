@@ -22,6 +22,8 @@ $(document).ready(function() {
   // the cart/order declaration
   var cart = {};
   var order = {};
+  //
+  var gameShow = $('#game-page-content');
 
 
   // this should represent the customer add page
@@ -72,12 +74,38 @@ $(document).ready(function() {
   //this should represent the add games page
 buttonGame.on('click', function(){
 
+
+
+
     navigate(currentPage, pageCart);
 });
-
+$.ajax('http://localhost:4000/games/',{
+  method: 'GET'
+  })
+  .done(function(games){
+    console.log(games);
+      $.each(games, function(index, game){
+        var item = $('<div class="col-md-4"><article class="game-info"><img class="game-pics"/><p class="game-info4"></p><p class="game-info3"></p><p class="game-info2"></p><p class="game-info1"></p><a id="add-btn-1" href="javascript://"></a></article></div>');
+        item.find('img.game-pics').attr('src',game.img);
+        item.find('p.game-info4').html(game.title);
+        item.find('p.game-info3').html(game.price);
+        item.find('p.game-info2').html(game.desc);
+        item.find('p.game-info1').html(game.system);
+        item.find('a#add-btn-1').html('add game to cart')
+        gameShow.append(item);
+    });
+  })
+  .fail(function(){
+    console.log('error');
+  })
+  .always(function(){
+    console.log('complete')
+  });
 
   //this should represent the cart page
-
+  buttonGame.on('click', function(){
+      navigate(currentPage, pageCart);
+  });
 
 
   // *********** Navigation ***********
@@ -103,7 +131,7 @@ buttonGame.on('click', function(){
         break;
 
       case 'checkout-link':
-        navigate(currentPage, pageReceipt);
+        navigate(currentPage, pageOrder);
         break;
 
       default:

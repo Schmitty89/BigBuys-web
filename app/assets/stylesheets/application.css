@@ -37,6 +37,12 @@
   color: white;
   width: 8%;
 }
+.game-info{
+  font-family: cursive;
+  background-color: black;
+  color: white;
+  width: 50%;
+}
 .game-pics{
   margin: 30px;
   width: 300px;
